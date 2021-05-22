@@ -21,7 +21,7 @@ export class UsersService {
       });
       return { user, token };
     } catch (err) {
-      if (err.parent.code === '23505') {
+      if (err.parent?.code === '23505') {
         throw new CustomError(409, 'Username already exist');
       } else {
         throw new CustomError(500, err.message);
