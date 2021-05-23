@@ -1,5 +1,6 @@
 import { GameModel } from './game.model.js';
 import { CustomError } from '../../middleware/error.js';
+import { Error } from '../../util/const.js';
 
 export class GamesService {
   constructor() {
@@ -11,7 +12,7 @@ export class GamesService {
       where: { owner_id: userId },
     });
     if (!games) {
-      throw new CustomError(500, 'Data not found');
+      throw new CustomError(500, Error.DATA_FOUND);
     }
     return games;
   }
@@ -21,7 +22,7 @@ export class GamesService {
       where: { id, owner_id: userId },
     });
     if (!game) {
-      throw new CustomError(500, 'Data not found');
+      throw new CustomError(500, Error.DATA_FOUND);
     }
 
     return game;

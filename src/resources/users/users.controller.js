@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { UsersService } from './users.service.js';
+import { Success } from '../../util/const.js';
 
 export class UsersController {
   constructor() {
@@ -24,7 +25,7 @@ export class UsersController {
       const authenticatedUser = await this.userService.signIn(userDto);
       res.json({
         ...authenticatedUser,
-        message: 'Successfully authenticated.',
+        message: Success.USER_AUTHENTICATED,
       });
     } catch (err) {
       next(err);

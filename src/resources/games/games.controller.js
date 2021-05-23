@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { GamesService } from './games.service.js';
+import { Success } from '../../util/const.js';
 
 export class GamesController {
   constructor() {
@@ -14,7 +15,7 @@ export class GamesController {
       const games = await this.gamesService.getAll(userId);
       res.status(200).json({
         games,
-        message: 'Data fetched.',
+        message: Success.DATA_FETCHED,
       });
     } catch (err) {
       next(err);
@@ -39,7 +40,7 @@ export class GamesController {
       const game = await this.gamesService.create(gameDto, userId);
       res.status(200).json({
         game,
-        message: 'Game created.',
+        message: Success.GAME_CREATED,
       });
     } catch (err) {
       next(err);
@@ -58,7 +59,7 @@ export class GamesController {
       );
       res.status(200).json({
         game: updatedGame,
-        message: 'Successfully updated.',
+        message: Success.GAME_UPDATED,
       });
     } catch (err) {
       next(err);
@@ -71,7 +72,7 @@ export class GamesController {
       const userId = req.user.id;
       await this.gamesService.delete(gameId, userId);
       res.status(200).json({
-        message: 'Successfully deleted.',
+        message: Success.GAME_DELETED,
       });
     } catch (err) {
       next(err);
