@@ -1,0 +1,35 @@
+{
+  "root": true,
+  "env": {
+    "es2020": true,
+    "jasmine": true,
+    "jest": true,
+    "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "settings": {
+    "noInlineConfig": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "airbnb-base",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [ "babel" ],
+  "parser": "babel-eslint",
+  "rules": {
+    "import/extensions": "off",
+    "linebreak-style": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
+    "consistent-return": "off"
+  }
+}
