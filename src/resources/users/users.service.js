@@ -13,7 +13,7 @@ export class UsersService {
       const user = await this.userModel.create({
         full_name: userDto.full_name,
         username: userDto.username,
-        passwordHash: bcrypt.hashSync(userDto.password, 10),
+        passwordHash: await bcrypt.hash(userDto.password, 10),
         email: userDto.email,
       });
       const token = jwt.sign({ id: user.id }, 'lets_play_sum_games_man', {
